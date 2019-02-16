@@ -1,0 +1,20 @@
+﻿@using Microsoft.AspNetCore.Authentication
+@inject IAuthenticationSchemeProvider Scheme
+@{
+
+    var loginProviders = (await Scheme.GetAllSchemesAsync()).Where(w => !string.IsNullOrEmpty(w.DisplayName)).ToList();
+    if (loginProviders.Any())
+    {
+
+        <div>
+            <p>
+                @foreach (var provider in loginProviders)
+                {
+                    <button asp-page-handler="@provider.Name" type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.Name</button>
+                }
+            </p>
+        </div>
+
+    }
+
+}
