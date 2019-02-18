@@ -5,17 +5,17 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Infrastructure.Data.EF.DbMaping.EntityMap
 {
-    public class UserMap : IEntityTypeConfiguration<User>
+    public class UserMap : BaseEntityMap<User>
     {
 
-        public void Configure(EntityTypeBuilder<User> builder)
+        public override void Configure(EntityTypeBuilder<User> builder)
         {
-            builder.ToTable("tbl_user");
+            base.Configure(builder);
             builder.HasKey(c => c.Id);
             builder.Property(c => c.Id).ValueGeneratedNever();
 
 
-          
+
 
         }
     }

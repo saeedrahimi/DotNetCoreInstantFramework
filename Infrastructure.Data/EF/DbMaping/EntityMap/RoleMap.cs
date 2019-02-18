@@ -6,11 +6,11 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Infrastructure.Data.EF.DbMaping.EntityMap
 {
-    public class RoleMap : IEntityTypeConfiguration<Role>
+    public class RoleMap : BaseEntityMap<Role>
     {
-        public void Configure(EntityTypeBuilder<Role> builder)
+        public override void Configure(EntityTypeBuilder<Role> builder)
         {
-            builder.ToTable("tbl_role");
+            base.Configure(builder);
             builder.HasKey(k => k.Id);
             builder.Property(k => k.Id).ValueGeneratedNever();
         }

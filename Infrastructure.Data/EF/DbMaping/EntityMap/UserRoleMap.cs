@@ -6,12 +6,12 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Infrastructure.Data.EF.DbMaping.EntityMap
 {
-   public class UserRoleMap: IEntityTypeConfiguration<UserRoles>
+    public class UserRoleMap : BaseEntityMap<UserRoles>
     {
-        public void Configure(EntityTypeBuilder<UserRoles> builder)
+        public override void Configure(EntityTypeBuilder<UserRoles> builder)
         {
 
-            builder.ToTable("tbl_user_role");
+            base.Configure(builder);
 
             builder.HasKey(t => new { t.UserId, t.RoleId });
 

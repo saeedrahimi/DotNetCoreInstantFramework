@@ -5,14 +5,12 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Infrastructure.Data.EF.DbMaping.EntityMap
 {
-    public class UserTokenMap : IEntityTypeConfiguration<UserToken>
+    public class UserTokenMap : BaseEntityMap<UserToken>
     {
-        public void Configure(EntityTypeBuilder<UserToken> builder)
+        public override void Configure(EntityTypeBuilder<UserToken> builder)
         {
-            builder.ToTable("tbl_user_token");
+            base.Configure(builder);
             builder.HasKey(k => k.UserId);
-
-          
         }
     }
 }
