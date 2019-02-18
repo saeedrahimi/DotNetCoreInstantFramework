@@ -1,6 +1,6 @@
-﻿using Core.Contract.Data.Repository.Identity.User;
-using Core.Contract.Data.Repository.Identity.User.Specification;
-using Core.Entities.Identity;
+﻿using Core.Domain.Contract.Data.Repository.Identity.User;
+using Core.Domain.Contract.Data.Repository.Identity.User.Specification;
+using Core.Domain.Identity.AggregateRoot;
 
 
 namespace Infrastructure.Data.EF.Repository.Identity

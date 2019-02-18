@@ -20,11 +20,11 @@ namespace Core.Contract.Data.Repository.Identity.User.Specification
 
         #region Specification
 
-        public ISpecification<Entities.Identity.User> UserPassMatchSpec(string username,string password)
+        public ISpecification<Domain.Identity.User> UserPassMatchSpec(string username,string password)
         {
             return new UserPassMatchSpec(username, password);
         }
-        public ISpecification<Entities.Identity.User> UserExistSpec(string username)
+        public ISpecification<Domain.Identity.User> UserExistSpec(string username)
         {
             return new UserExistSpec(username);
         }

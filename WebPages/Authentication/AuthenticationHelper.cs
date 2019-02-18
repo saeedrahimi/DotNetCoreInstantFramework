@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Security.Principal;
-using Core.Entities.Identity;
+using Core.Domain.Identity;
+using Core.Domain.Identity.AggregateRoot;
 using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace WebPages.Authentication

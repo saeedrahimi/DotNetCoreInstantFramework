@@ -5,16 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Core.Entities\Core.Entities.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Folder Include="Cache\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="FluentValidation" Version="8.1.2" />
-    <PackageReference Include="MediatR" Version="6.0.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.2.0" />
   </ItemGroup>
 

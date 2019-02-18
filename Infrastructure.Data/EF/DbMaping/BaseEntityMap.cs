@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Runtime.InteropServices;
-using System.Text;
-using Core.Entities;
+using Core.Domain.Contract;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Win32.SafeHandles;
 

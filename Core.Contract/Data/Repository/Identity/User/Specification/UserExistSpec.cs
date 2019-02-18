@@ -5,7 +5,7 @@ using Core.Contract.Data.Specification;
 
 namespace Core.Contract.Data.Repository.Identity.User.Specification
 {
-    public class UserExistSpec : BaseSpecification<Entities.Identity.User>
+    public class UserExistSpec : BaseSpecification<Domain.Identity.User>
     {
 
         public UserExistSpec(string username)

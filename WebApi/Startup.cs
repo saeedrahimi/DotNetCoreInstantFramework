@@ -1,10 +1,10 @@
 ﻿
-using Core.Contract.Data;
-using Core.Contract.Data.Repository;
-using Core.Contract.Data.Repository.Identity.User;
-using Core.Contract.Ioc;
-using Core.Contract.Logger;
-using Core.Contract.Services.Application.Identity;
+using Core.Domain.Contract.Data;
+using Core.Domain.Contract.Data.Repository;
+using Core.Domain.Contract.Data.Repository.Identity.User;
+using Core.Domain.Contract.Ioc;
+using Core.Domain.Contract.Logger;
+using Core.Domain.Contract.Services.Application.Identity;
 using Infrastructure.Data.EF;
 using Infrastructure.Data.EF.Repository;
 using Infrastructure.Data.EF.Repository.Identity;

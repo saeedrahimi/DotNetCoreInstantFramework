@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Core.Contract.Services.Application.Identity;
-using Core.Contract.Services.Application.Identity.Model;
+using Core.Domain.Contract.Services.Application.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebApi.Controllers

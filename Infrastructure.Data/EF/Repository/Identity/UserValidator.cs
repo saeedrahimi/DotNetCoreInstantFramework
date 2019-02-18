@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using Core.Contract;
-using Core.Contract.Data;
-using Core.Contract.Services.Shared;
-using Core.Entities.Identity;
+﻿using System.Collections.Generic;
+using Core.Domain.Contract;
+using Core.Domain.Identity.AggregateRoot;
 
 namespace Infrastructure.Data.EF.Repository.Identity
 {

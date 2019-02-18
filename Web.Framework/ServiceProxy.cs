@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Reflection;
 using System.Threading.Tasks;
-using Core.Contract;
-using Core.Contract.Logger;
-using Core.Contract.Services.Shared;
+using Core.Domain.Contract;
+using Core.Domain.Contract.Logger;
+using Core.Domain.Contract.Services.Shared;
 using Microsoft.EntityFrameworkCore.Internal;
 
 namespace Web.Framework

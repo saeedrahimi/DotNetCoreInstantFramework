@@ -1,4 +1,5 @@
-﻿using Core.Entities.Identity;
+﻿using Core.Domain.Identity;
+using Core.Domain.Identity.Poco;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

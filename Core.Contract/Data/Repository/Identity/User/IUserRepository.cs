@@ -2,7 +2,7 @@
 
 namespace Core.Contract.Data.Repository.Identity.User
 {
-    public interface IUserRepository:IBaseRepository<Entities.Identity.User>
+    public interface IUserRepository:IBaseRepository<Domain.Identity.User>
     {
          UsersSpecificationFactory SpecificationFactory { get; }
     }

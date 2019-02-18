@@ -1,7 +1,8 @@
 using System.Threading.Tasks;
-using Core.Contract.Services.Application.Identity;
-using Core.Contract.Services.Application.Identity.Model;
-using Core.Entities.Identity;
+using Core.Domain.Contract.Services.Application.Identity;
+using Core.Domain.Contract.Services.Application.Identity.Model;
+using Core.Domain.Identity;
+using Core.Domain.Identity.AggregateRoot;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;

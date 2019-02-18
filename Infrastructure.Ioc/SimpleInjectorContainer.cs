@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
-using System.Text;
-using Core.Contract;
-using Core.Contract.CQRS.AOP;
-using Core.Contract.Ioc;
+using Core.Domain.Contract.CQRS.AOP;
+using Core.Domain.Contract.Ioc;
 using MediatR;
 using MediatR.Pipeline;
 using Microsoft.AspNetCore.Builder;

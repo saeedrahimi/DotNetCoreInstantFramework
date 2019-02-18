@@ -1,6 +1,5 @@
-﻿using System.Transactions;
-using Core.Contract.Data;
-using Core.Contract.Services.Application;
+﻿using Core.Domain.Contract.Data;
+using Core.Domain.Contract.Services.Application;
 
 namespace Services.Application
 {

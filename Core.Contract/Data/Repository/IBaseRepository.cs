@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Linq.Expressions;
-using System.Threading.Tasks;
 using Core.Contract.Data.Specification;
 using Core.Contract.Ioc;
-using Core.Entities;
+
 
 namespace Core.Contract.Data.Repository
 {

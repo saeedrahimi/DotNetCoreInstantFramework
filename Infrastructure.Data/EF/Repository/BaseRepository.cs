@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Linq;
 using System.Linq.Expressions;
-using Core.Contract;
-using Core.Contract.Data.Repository;
-using Core.Contract.Data.Specification;
-using Core.Entities;
-using Microsoft.EntityFrameworkCore;
+using Core.Domain.Contract;
+using Core.Domain.Contract.Data.Repository;
+using Core.Domain.Contract.Data.Specification;
+
 
 namespace Infrastructure.Data.EF.Repository
 {

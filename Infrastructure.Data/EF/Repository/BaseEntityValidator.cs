@@ -1,9 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Core.Contract;
-using Core.Contract.Data;
-using Core.Contract.Data.Repository;
-using Core.Contract.Services.Shared;
+using Core.Domain.Contract;
+using Core.Domain.Contract.Data.Repository;
 
 namespace Infrastructure.Data.EF.Repository
 {

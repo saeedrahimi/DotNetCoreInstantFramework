@@ -1,6 +1,5 @@
-﻿using Core.Contract.Data;
-using Core.Contract.Data.Repository.Identity;
-using Core.Contract.Data.Repository.Identity.User;
+﻿using Core.Domain.Contract.Data;
+using Core.Domain.Contract.Data.Repository.Identity.User;
 
 
 namespace Infrastructure.Data.EF

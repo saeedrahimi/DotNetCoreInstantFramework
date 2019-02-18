@@ -1,5 +1,5 @@
-﻿using Core.Contract.Services.Application.Identity;
-using Core.Contract.Services.Application.Identity.Model;
+﻿using Core.Domain.Contract.Services.Application.Identity;
+using Core.Domain.Contract.Services.Application.Identity.Model;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 

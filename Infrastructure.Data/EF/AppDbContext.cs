@@ -1,4 +1,6 @@
-﻿using Core.Entities.Identity;
+﻿using Core.Domain.Identity;
+using Core.Domain.Identity.AggregateRoot;
+using Core.Domain.Identity.Poco;
 using Infrastructure.Data.EF.DbMaping.EntityMap;
 using Microsoft.EntityFrameworkCore;
 
