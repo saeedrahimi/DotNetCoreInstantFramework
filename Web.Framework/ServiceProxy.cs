@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Reflection;
 using System.Threading.Tasks;
+using System.Transactions;
 using Core.Domain.Contract;
 using Core.Domain.Contract.Logger;
 using Core.Domain.Contract.Services.Shared;
@@ -39,11 +40,6 @@ namespace Web.Framework
                 throw new Exception($"for use of ExceptionHandling method return type shoulde be {typeof(Result)}");
             }
 
-            if (!serviceInterceptor.ExceptionHandling)
-            {
-                return targetMethod.Invoke(_decorated, args);
-            }
-           
             try
             {
 
@@ -63,12 +59,21 @@ namespace Web.Framework
                 }
 
                 //execute Method
+                if (serviceInterceptor.TransactionScope)
+                {
+                    using (new TransactionScope())
+                    {
+                        return targetMethod.Invoke(_decorated, args);
+                    }
+                }
+
                 return targetMethod.Invoke(_decorated, args);
+
             }
             catch (Exception e)
             {
                 if (serviceInterceptor.Log != LogMode.Non)
-                    _logger.Log(LogMode.Exception,e.Message);
+                    _logger.Log(LogMode.Exception, e.Message);
 
                 return new Result()
                 {

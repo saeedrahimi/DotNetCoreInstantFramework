@@ -11,13 +11,13 @@ namespace Core.Domain.Contract.Services.Shared
         public Interceptor()
         {
             Log = LogMode.Non;
-            ExceptionHandling = true;
             InputModelValidation = true;
+            TransactionScope = false;
         }
 
         public LogMode Log { get; set; }
-        public bool ExceptionHandling { get; set; }
         public bool InputModelValidation { get; set; }
+        public bool TransactionScope { get; set; }
       
         
 
