@@ -1,6 +1,6 @@
 ﻿using Core.Domain.Contract.Data.Specification;
 
-namespace Core.Domain.Contract.Data.Repository.Identity.User.Specification
+namespace Core.Domain.Identity.Specification
 {
     internal sealed class UserPassMatchSpec:BaseSpecification<Domain.Identity.AggregateRoot.User>
     {     

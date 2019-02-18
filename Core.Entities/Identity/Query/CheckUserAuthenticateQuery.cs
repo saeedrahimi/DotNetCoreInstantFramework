@@ -36,7 +36,7 @@ namespace Core.Domain.Identity.Query
 
         public Task<Result> Handle(CheckUserAuthenticateQuery request, CancellationToken cancellationToken)
         {
-
+            
             var specific = _userRepository.SpecificationFactory.UserPassMatchSpec(request.UserName, request.Password);
             var getUserResult = _userRepository.Get(specific);
 

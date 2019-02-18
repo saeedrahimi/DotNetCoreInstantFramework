@@ -2,7 +2,7 @@
 using System.Threading;
 using Core.Domain.Contract.Data.Specification;
 
-namespace Core.Domain.Contract.Data.Repository.Identity.User.Specification
+namespace Core.Domain.Identity.Specification
 {
     public  class UsersSpecificationFactory 
     {

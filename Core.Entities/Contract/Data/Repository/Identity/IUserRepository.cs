@@ -1,4 +1,4 @@
-﻿using Core.Domain.Contract.Data.Repository.Identity.User.Specification;
+﻿using Core.Domain.Identity.Specification;
 
 namespace Core.Domain.Contract.Data.Repository.Identity.User
 {
