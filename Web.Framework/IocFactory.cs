@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Threading;
-using Core.Domain.Contract.Ioc;
+using Core.Domain._Shared.Ioc;
 using Infrastructure.Ioc;
 
 namespace Web.Framework

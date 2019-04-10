@@ -3,8 +3,10 @@ using System.Reflection;
 using System.Threading.Tasks;
 using System.Transactions;
 using Core.Domain.Contract;
-using Core.Domain.Contract.Logger;
-using Core.Domain.Contract.Services.Shared;
+using Core.Domain.Contract.Services;
+using Core.Domain._Shared;
+using Core.Domain._Shared.Logger;
+using Core.Domain._Shared.Services;
 using Microsoft.EntityFrameworkCore.Internal;
 
 namespace Web.Framework

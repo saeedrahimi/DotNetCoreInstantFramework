@@ -2,15 +2,12 @@
 using System.Collections.Generic;
 using Core.Domain.Contract;
 using Core.Domain.Identity.Poco;
+using Core.Domain._Shared;
 
 namespace Core.Domain.Identity.AggregateRoot
 {
     public  class User:BaseEntity
     {
-
-        public User()
-        {
-        }
 
         public Guid Id { get; set; }
         public string Email { get; set; }

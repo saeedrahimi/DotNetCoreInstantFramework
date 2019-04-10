@@ -1,6 +1,7 @@
 ﻿using System;
 using Core.Domain.Contract;
 using Core.Domain.Identity.AggregateRoot;
+using Core.Domain._Shared;
 
 namespace Core.Domain.Identity.Poco
 {
@@ -11,7 +12,6 @@ namespace Core.Domain.Identity.Poco
         public DateTime ExpireDate { get; internal set; }
 
 
-       
         public Guid UserId { get; internal set; } 
         public virtual User User { get; internal set; }
     }

@@ -3,6 +3,8 @@ using Core.Domain.Contract.Services.Application.Identity;
 using Core.Domain.Contract.Services.Application.Identity.Model;
 using Core.Domain.Identity;
 using Core.Domain.Identity.AggregateRoot;
+using Core.Domain.Identity.DTO;
+using Core.Domain.Identity.Services;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;

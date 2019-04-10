@@ -1,5 +1,7 @@
-﻿using Core.Domain.Contract.Data;
+﻿using Core.Domain.Contract.Services;
 using Core.Domain.Contract.Services.Application;
+using Core.Domain._Shared.Data;
+using Core.Domain._Shared.Services;
 
 namespace Services.Application
 {

@@ -2,9 +2,10 @@
 using System.Threading;
 using System.Threading.Tasks;
 using Core.Domain.Contract;
-using Core.Domain.Contract.Data;
-using Core.Domain.Contract.Data.Repository.Identity.User;
 using Core.Domain.Identity.AggregateRoot;
+using Core.Domain.Identity.Repository;
+using Core.Domain._Shared;
+using Core.Domain._Shared.Data;
 using MediatR;
 
 namespace Core.Domain.Identity.Query
@@ -21,7 +22,7 @@ namespace Core.Domain.Identity.Query
             Password = password;
         }
     }
-
+     
 
 
     public class CheckUserAuthenticateQueryHandler : IRequestHandler<CheckUserAuthenticateQuery,Result>

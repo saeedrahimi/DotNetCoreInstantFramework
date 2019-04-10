@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Core.Domain.Contract;
+using Core.Domain._Shared;
 
 namespace Core.Domain.Identity.Poco
 {

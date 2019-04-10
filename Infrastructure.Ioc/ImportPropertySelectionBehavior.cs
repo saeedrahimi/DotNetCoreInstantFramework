@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Reflection;
-using Core.Domain.Contract.Ioc;
+using Core.Domain._Shared.Ioc;
 using SimpleInjector.Advanced;
 
 namespace Infrastructure.Ioc

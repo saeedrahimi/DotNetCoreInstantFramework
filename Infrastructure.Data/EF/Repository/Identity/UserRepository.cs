@@ -1,5 +1,5 @@
-﻿using Core.Domain.Contract.Data.Repository.Identity.User;
-using Core.Domain.Identity.AggregateRoot;
+﻿using Core.Domain.Identity.AggregateRoot;
+using Core.Domain.Identity.Repository;
 using Core.Domain.Identity.Specification;
 
 

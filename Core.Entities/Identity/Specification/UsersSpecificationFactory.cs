@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Threading;
-using Core.Domain.Contract.Data.Specification;
+using Core.Domain._Shared.Data.Specification;
 
 namespace Core.Domain.Identity.Specification
 {
@@ -19,11 +19,11 @@ namespace Core.Domain.Identity.Specification
 
         #region Specification
 
-        public ISpecification<Domain.Identity.AggregateRoot.User> UserPassMatchSpec(string username,string password)
+        public ISpecification<AggregateRoot.User> UserPassMatchSpec(string username,string password)
         {
             return new UserPassMatchSpec(username, password);
         }
-        public ISpecification<Domain.Identity.AggregateRoot.User> UserExistSpec(string username)
+        public ISpecification<AggregateRoot.User> UserExistSpec(string username)
         {
             return new UserExistSpec(username);
         }

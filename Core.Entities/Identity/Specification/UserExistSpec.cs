@@ -1,8 +1,8 @@
-﻿using Core.Domain.Contract.Data.Specification;
+﻿using Core.Domain._Shared.Data.Specification;
 
 namespace Core.Domain.Identity.Specification
 {
-    public class UserExistSpec : BaseSpecification<Domain.Identity.AggregateRoot.User>
+    public class UserExistSpec : BaseSpecification<AggregateRoot.User>
     {
 
         public UserExistSpec(string username)

@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
-using Core.Domain.Contract.CQRS.AOP;
-using Core.Domain.Contract.Ioc;
+using Core.Domain._Shared.CQRS.AOP;
+using Core.Domain._Shared.Ioc;
 using MediatR;
 using MediatR.Pipeline;
 using Microsoft.AspNetCore.Builder;

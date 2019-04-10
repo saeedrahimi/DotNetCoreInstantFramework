@@ -1,11 +1,11 @@
-﻿using Core.Domain.Contract.Logger;
+﻿using Core.Domain._Shared.Logger;
 using Serilog;
 using Serilog.Core;
-using ILogger = Core.Domain.Contract.Logger.ILogger;
+using ILogger = Core.Domain._Shared.Logger.ILogger;
 
 namespace Infrastructure.Logging
 {
-    public class FileLogger : Core.Domain.Contract.Logger.ILogger
+    public class FileLogger : Core.Domain._Shared.Logger.ILogger
     {
         private readonly Logger _log;
 

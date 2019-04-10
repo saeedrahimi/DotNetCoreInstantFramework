@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Core.Domain.Contract.Data.Specification;
+using Core.Domain._Shared.Data.Specification;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Data.EF.Repository
