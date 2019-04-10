@@ -19,10 +19,10 @@ namespace Infrastructure.Data.EF.Repository.Identity
             return base.ValidateModel(model);
         }
 
-        public override Result ValidateModels(List<User> model)
+        public override Result ValidateModel(List<User> model)
         {
 
-            return base.ValidateModels(model);
+            return base.ValidateModel(model);
         }
     }
 }

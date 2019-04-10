@@ -24,7 +24,7 @@ namespace Infrastructure.Data.EF.Repository
             };
         }
 
-        public virtual Result ValidateModels(List<T> models)
+        public virtual Result ValidateModel(List<T> models)
         {
 
             if (!models.Any())

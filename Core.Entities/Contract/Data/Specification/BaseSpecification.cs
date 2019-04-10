@@ -14,9 +14,6 @@ namespace Core.Domain.Contract.Data.Specification
 
         }
 
-       
-      
-
         protected void AddInclude(Expression<Func<T, object>> includeExpression)
         {
             Includes.Add(includeExpression);

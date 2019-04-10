@@ -6,7 +6,7 @@ namespace Core.Domain.Contract.Data.Repository
     {
 
         Result ValidateModel(T model);
-        Result ValidateModels(List<T> models);
+        Result ValidateModel(List<T> models);
         Result ValidateModelForCreate(T model);
         Result ValidateModelForUpdate(T model);
         Result ValidateModelForRemove(T model);

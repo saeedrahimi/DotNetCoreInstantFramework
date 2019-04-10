@@ -1,4 +1,5 @@
-﻿using Core.Domain.Identity;
+﻿using System.Linq;
+using Core.Domain.Identity;
 using Core.Domain.Identity.AggregateRoot;
 using Core.Domain.Identity.Poco;
 using Infrastructure.Data.EF.DbMaping.EntityMap;
@@ -31,6 +32,7 @@ namespace Infrastructure.Data.EF
             modelBuilder.ApplyConfiguration(new RoleMap());
             modelBuilder.ApplyConfiguration(new UserRoleMap());
             modelBuilder.ApplyConfiguration(new UserTokenMap());
+
         }
 
        

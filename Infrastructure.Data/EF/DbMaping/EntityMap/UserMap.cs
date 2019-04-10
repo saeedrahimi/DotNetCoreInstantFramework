@@ -1,6 +1,4 @@
-﻿using Core.Domain.Identity;
-using Core.Domain.Identity.AggregateRoot;
-using Microsoft.EntityFrameworkCore;
+﻿using Core.Domain.Identity.AggregateRoot;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Infrastructure.Data.EF.DbMaping.EntityMap
@@ -14,9 +12,7 @@ namespace Infrastructure.Data.EF.DbMaping.EntityMap
             builder.HasKey(c => c.Id);
             builder.Property(c => c.Id).ValueGeneratedNever();
 
-
-
-
+            builder.Property(p => p.Mobile).HasConversion(base.EncryptedConverter);
         }
     }
 }

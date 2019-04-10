@@ -75,7 +75,7 @@ namespace Infrastructure.Data.EF.Repository
             // return the result of the query using the specification's criteria expression
             var result=ApplySpecification(spec).ToList();
 
-            var validate = Validator.ValidateModels(result);
+            var validate = Validator.ValidateModel(result);
             if (!validate.Success) return validate;
             return new Result()
             {
@@ -88,7 +88,7 @@ namespace Infrastructure.Data.EF.Repository
         {
             var result = _dbContext.Set<T>().Where(condition).ToList();
 
-            var validate = Validator.ValidateModels(result);
+            var validate = Validator.ValidateModel(result);
             if (!validate.Success) return validate;
 
             return new Result()
