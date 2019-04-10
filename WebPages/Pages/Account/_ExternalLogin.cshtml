@@ -5,7 +5,6 @@
     var loginProviders = (await Scheme.GetAllSchemesAsync()).Where(w => !string.IsNullOrEmpty(w.DisplayName)).ToList();
     if (loginProviders.Any())
     {
-
         <div>
             <p>
                 @foreach (var provider in loginProviders)

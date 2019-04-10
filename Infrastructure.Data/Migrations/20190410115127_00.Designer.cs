@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20190114102622_01")]
-    partial class _01
+    [Migration("20190410115127_00")]
+    partial class _00
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -21,24 +21,7 @@ namespace Infrastructure.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Core.Entities.Identity.Role", b =>
-                {
-                    b.Property<Guid>("Id");
-
-                    b.Property<DateTime>("CreateDate");
-
-                    b.Property<bool>("IsActive");
-
-                    b.Property<DateTime>("LastModifyDate");
-
-                    b.Property<string>("Name");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("tbl_role");
-                });
-
-            modelBuilder.Entity("Core.Entities.Identity.User", b =>
+            modelBuilder.Entity("Core.Domain.Identity.AggregateRoot.User", b =>
                 {
                     b.Property<Guid>("Id");
 
@@ -62,10 +45,27 @@ namespace Infrastructure.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("tbl_user");
+                    b.ToTable("tbl_User");
                 });
 
-            modelBuilder.Entity("Core.Entities.Identity.UserRoles", b =>
+            modelBuilder.Entity("Core.Domain.Identity.Poco.Role", b =>
+                {
+                    b.Property<Guid>("Id");
+
+                    b.Property<DateTime>("CreateDate");
+
+                    b.Property<bool>("IsActive");
+
+                    b.Property<DateTime>("LastModifyDate");
+
+                    b.Property<string>("Name");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("tbl_Role");
+                });
+
+            modelBuilder.Entity("Core.Domain.Identity.Poco.UserRoles", b =>
                 {
                     b.Property<Guid>("UserId");
 
@@ -75,12 +75,13 @@ namespace Infrastructure.Data.Migrations
 
                     b.HasIndex("RoleId");
 
-                    b.ToTable("tbl_user_role");
+                    b.ToTable("tbl_UserRoles");
                 });
 
-            modelBuilder.Entity("Core.Entities.Identity.UserToken", b =>
+            modelBuilder.Entity("Core.Domain.Identity.Poco.UserToken", b =>
                 {
-                    b.Property<Guid>("UserId");
+                    b.Property<Guid>("UserId")
+                        .ValueGeneratedOnAdd();
 
                     b.Property<string>("AccessToken");
 
@@ -92,29 +93,33 @@ namespace Infrastructure.Data.Migrations
 
                     b.Property<DateTime>("LastModifyDate");
 
+                    b.Property<Guid>("UserId1");
+
                     b.HasKey("UserId");
 
-                    b.ToTable("tbl_user_token");
+                    b.HasIndex("UserId1");
+
+                    b.ToTable("tbl_UserToken");
                 });
 
-            modelBuilder.Entity("Core.Entities.Identity.UserRoles", b =>
+            modelBuilder.Entity("Core.Domain.Identity.Poco.UserRoles", b =>
                 {
-                    b.HasOne("Core.Entities.Identity.Role", "Role")
+                    b.HasOne("Core.Domain.Identity.Poco.Role", "Role")
                         .WithMany("UserRoles")
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("Core.Entities.Identity.User", "User")
+                    b.HasOne("Core.Domain.Identity.AggregateRoot.User", "User")
                         .WithMany("UserRoles")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("Core.Entities.Identity.UserToken", b =>
+            modelBuilder.Entity("Core.Domain.Identity.Poco.UserToken", b =>
                 {
-                    b.HasOne("Core.Entities.Identity.User", "User")
-                        .WithOne("Token")
-                        .HasForeignKey("Core.Entities.Identity.UserToken", "UserId")
+                    b.HasOne("Core.Domain.Identity.AggregateRoot.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId1")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618

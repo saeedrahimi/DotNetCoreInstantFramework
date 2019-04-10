@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO.Compression;
 using System.Linq;
 using System.Reflection;
-using Core.Domain.Contract.Services.Application.Identity;
 using Core.Domain.Identity.Repository;
 using Core.Domain.Identity.Services;
 using Core.Domain._Shared.Data;
@@ -48,11 +47,11 @@ namespace WebPages
                 .AddJsonOptions(options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore)
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
-            var conStr = Configuration["SqlConnectionString"];
-            services
-                .AddDbContext<AppDbContext>(options => 
-                options.UseSqlServer(conStr)
-                    .UseLazyLoadingProxies());
+            //var conStr = Configuration["SqlConnectionString"];
+            //services
+            //    .AddDbContext<AppDbContext>(options => 
+            //    options.UseSqlServer(conStr)
+            //        .UseLazyLoadingProxies());
 
           
             services.AddAuthentication(cfg =>
