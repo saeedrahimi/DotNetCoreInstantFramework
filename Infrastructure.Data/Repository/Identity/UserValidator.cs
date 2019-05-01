@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
-using Core.Domain.Contract;
 using Core.Domain.Identity.AggregateRoot;
 using Core.Domain._Shared;
 
-namespace Infrastructure.Data.EF.Repository.Identity
+
+namespace Infrastructure.Data.Repository.Identity
 {
     public class UserValidator : BaseEntityValidator<User>
     {

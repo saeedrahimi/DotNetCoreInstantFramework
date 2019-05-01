@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using Core.Domain.Identity;
 using Core.Domain.Identity.AggregateRoot;
 using Microsoft.EntityFrameworkCore;
 
-namespace Infrastructure.Data.EF
+namespace Infrastructure.Data
 {
     public static class DbInitializer
     {

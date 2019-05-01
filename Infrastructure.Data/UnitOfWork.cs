@@ -1,8 +1,7 @@
 ﻿using Core.Domain.Identity.Repository;
 using Core.Domain._Shared.Data;
 
-
-namespace Infrastructure.Data.EF
+namespace Infrastructure.Data
 {
     public class UnitOfWork : IUnitofWork
     {

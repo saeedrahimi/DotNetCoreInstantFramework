@@ -1,4 +1,5 @@
-﻿using Infrastructure.Data.EF;
+﻿
+using Infrastructure.Data;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 

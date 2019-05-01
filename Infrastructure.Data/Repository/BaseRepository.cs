@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Linq;
 using System.Linq.Expressions;
-using Core.Domain.Contract;
 using Core.Domain._Shared;
 using Core.Domain._Shared.Data.Repository;
 using Core.Domain._Shared.Data.Specification;
 
 
-namespace Infrastructure.Data.EF.Repository
+namespace Infrastructure.Data.Repository
 {
     public abstract class BaseRepository<T>: IBaseRepository<T> where T : BaseEntity
     {

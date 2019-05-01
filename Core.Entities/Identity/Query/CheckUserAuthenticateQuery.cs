@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using Core.Domain.Contract;
 using Core.Domain.Identity.AggregateRoot;
 using Core.Domain.Identity.Repository;
 using Core.Domain._Shared;
@@ -22,8 +21,6 @@ namespace Core.Domain.Identity.Query
             Password = password;
         }
     }
-     
-
 
     public class CheckUserAuthenticateQueryHandler : IRequestHandler<CheckUserAuthenticateQuery,Result>
     {

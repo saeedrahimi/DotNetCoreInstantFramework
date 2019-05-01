@@ -1,7 +1,7 @@
 ﻿using Core.Domain.Identity.AggregateRoot;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Infrastructure.Data.EF.DbMaping.EntityMap
+namespace Infrastructure.Data.DbMaping.EntityMap
 {
     public class UserMap : BaseEntityMap<User>
     {
