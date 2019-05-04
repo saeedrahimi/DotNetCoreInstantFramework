@@ -47,13 +47,13 @@ namespace WebPages
                 .AddJsonOptions(options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore)
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
-            //var conStr = Configuration["SqlConnectionString"];
-            //services
-            //    .AddDbContext<AppDbContext>(options => 
-            //    options.UseSqlServer(conStr)
-            //        .UseLazyLoadingProxies());
+            var conStr = Configuration["SqlConnectionString"];
+            services
+                .AddDbContext<AppDbContext>(options =>
+                options.UseSqlServer(conStr)
+                    .UseLazyLoadingProxies());
 
-          
+
             services.AddAuthentication(cfg =>
             {
                 cfg.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
