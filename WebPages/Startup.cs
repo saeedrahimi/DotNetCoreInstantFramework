@@ -131,7 +131,7 @@ namespace WebPages
 
             IocFactory.Container().RegisterMediateR(new List<Assembly>()
             {
-                AppDomain.CurrentDomain.GetAssemblies().SingleOrDefault(w => w.GetName().Name == "Core.Contract")
+                AppDomain.CurrentDomain.GetAssemblies().SingleOrDefault(w => w.GetName().Name == "Core.Domain")
             });
 
         }
