@@ -1,12 +1,9 @@
-﻿using System.Linq;
-using Core.Domain.Identity;
-using Core.Domain.Identity.AggregateRoot;
+﻿using Core.Domain.Identity.AggregateRoot;
 using Core.Domain.Identity.Poco;
-using Infrastructure.Data.EF.DbMaping.EntityMap;
+using Infrastructure.Data.DbMaping.EntityMap;
 using Microsoft.EntityFrameworkCore;
 
-
-namespace Infrastructure.Data.EF
+namespace Infrastructure.Data
 {
     public class AppDbContext:DbContext
     {

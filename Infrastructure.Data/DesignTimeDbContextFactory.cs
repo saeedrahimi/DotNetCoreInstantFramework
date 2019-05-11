@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 
-namespace Infrastructure.Data.EF
+namespace Infrastructure.Data
 {
     class DesignTimeDbContextFactory: IDesignTimeDbContextFactory<AppDbContext>
     {

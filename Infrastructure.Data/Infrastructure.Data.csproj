@@ -5,6 +5,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="DbMaping\EntityMap\Configuration\**" />
+    <Compile Remove="DbMaping\EntityMap\Identity\**" />
+    <EmbeddedResource Remove="DbMaping\EntityMap\Configuration\**" />
+    <EmbeddedResource Remove="DbMaping\EntityMap\Identity\**" />
+    <None Remove="DbMaping\EntityMap\Configuration\**" />
+    <None Remove="DbMaping\EntityMap\Identity\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="2.2.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.2.0" />

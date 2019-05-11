@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace Infrastructure.Data.EF.DbMaping
+namespace Infrastructure.Data.DbMaping
 {
     public abstract class BaseEntityMap<T> : IEntityTypeConfiguration<T> where T : class
     {

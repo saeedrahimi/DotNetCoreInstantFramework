@@ -1,9 +1,7 @@
-﻿using Core.Domain.Identity;
-using Core.Domain.Identity.Poco;
-using Microsoft.EntityFrameworkCore;
+﻿using Core.Domain.Identity.Poco;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Infrastructure.Data.EF.DbMaping.EntityMap
+namespace Infrastructure.Data.DbMaping.EntityMap
 {
     public class UserTokenMap : BaseEntityMap<UserToken>
     {

@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Core.Domain.Contract;
 using Core.Domain._Shared;
 using Core.Domain._Shared.Data.Repository;
 
-namespace Infrastructure.Data.EF.Repository
+
+namespace Infrastructure.Data.Repository
 {
     public class BaseEntityValidator<T>:IEntityValidator<T>
     {

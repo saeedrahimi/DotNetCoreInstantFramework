@@ -9,9 +9,9 @@ using Core.Domain._Shared.Data;
 using Core.Domain._Shared.Data.Repository;
 using Core.Domain._Shared.Ioc;
 using Core.Domain._Shared.Logger;
-using Infrastructure.Data.EF;
-using Infrastructure.Data.EF.Repository;
-using Infrastructure.Data.EF.Repository.Identity;
+using Infrastructure.Data;
+using Infrastructure.Data.Repository;
+using Infrastructure.Data.Repository.Identity;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -47,13 +47,13 @@ namespace WebPages
                 .AddJsonOptions(options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore)
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
-            //var conStr = Configuration["SqlConnectionString"];
-            //services
-            //    .AddDbContext<AppDbContext>(options => 
-            //    options.UseSqlServer(conStr)
-            //        .UseLazyLoadingProxies());
+            var conStr = Configuration["SqlConnectionString"];
+            services
+                .AddDbContext<AppDbContext>(options =>
+                options.UseSqlServer(conStr)
+                    .UseLazyLoadingProxies());
 
-          
+
             services.AddAuthentication(cfg =>
             {
                 cfg.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
@@ -131,7 +131,7 @@ namespace WebPages
 
             IocFactory.Container().RegisterMediateR(new List<Assembly>()
             {
-                AppDomain.CurrentDomain.GetAssemblies().SingleOrDefault(w => w.GetName().Name == "Core.Contract")
+                AppDomain.CurrentDomain.GetAssemblies().SingleOrDefault(w => w.GetName().Name == "Core.Domain")
             });
 
         }

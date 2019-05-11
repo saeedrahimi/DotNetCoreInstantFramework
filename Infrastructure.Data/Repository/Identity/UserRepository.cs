@@ -3,7 +3,7 @@ using Core.Domain.Identity.Repository;
 using Core.Domain.Identity.Specification;
 
 
-namespace Infrastructure.Data.EF.Repository.Identity
+namespace Infrastructure.Data.Repository.Identity
 {
     public class UserRepository:BaseRepository<User>,IUserRepository
     {
