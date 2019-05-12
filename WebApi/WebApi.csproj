@@ -11,11 +11,12 @@
     <PackageReference Include="Microsoft.AspNetCore.Mvc.RazorPages" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.2.0" />
-    <PackageReference Include="SimpleInjector" Version="4.4.2" />
-    <PackageReference Include="SimpleInjector.Integration.AspNetCore.Mvc" Version="4.4.2" />
+    <PackageReference Include="SimpleInjector" Version="4.6.0" />
+    <PackageReference Include="SimpleInjector.Integration.AspNetCore.Mvc" Version="4.6.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Framework.Config\Framework.Config.csproj" />
     <ProjectReference Include="..\Web.Framework\Web.Framework.csproj" />
   </ItemGroup>
 

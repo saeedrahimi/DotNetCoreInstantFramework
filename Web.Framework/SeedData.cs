@@ -1,4 +1,6 @@
 ﻿
+using System;
+using Core.Domain._Shared.Logger;
 using Infrastructure.Data;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
@@ -12,8 +14,17 @@ namespace Web.Framework
         {
             using (var scope = host.Services.CreateScope())
             {
-                var context = scope.ServiceProvider.GetService<AppDbContext>();
-                DbInitializer.Seed(context);
+                var logger = scope.ServiceProvider.GetRequiredService<ILogger<AppDbContext>>();
+                try
+                {
+                    var context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+                    DbInitializer.Seed(context);
+                }
+                catch (Exception ex)
+                {
+                    logger.Fatal(ex, "An error occurred while migrating the database.");
+                    throw;
+                }
             }
             return host;
         }

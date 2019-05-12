@@ -12,6 +12,7 @@ using Core.Domain._Shared.Logger;
 using Infrastructure.Data;
 using Infrastructure.Data.Repository;
 using Infrastructure.Data.Repository.Identity;
+using Infrastructure.Logging.Serilog;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -47,12 +48,12 @@ namespace WebPages
                 .AddJsonOptions(options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore)
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
-            var conStr = Configuration["SqlConnectionString"];
-            services
-                .AddDbContext<AppDbContext>(options =>
+            var conStr = Configuration["ConnectionStrings:main_server"];
+            services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlServer(conStr)
                     .UseLazyLoadingProxies());
-
+            
+            services.AddScoped(typeof(ILogger<>), typeof(SerilogLogger<>));
 
             services.AddAuthentication(cfg =>
             {
@@ -91,7 +92,8 @@ namespace WebPages
 
 
             IocFactory.Container().AddAspCoreDependencyInjection(services);
-            InitializeContainer();
+            var serviceProvider = services.BuildServiceProvider();
+            InitializeContainer(serviceProvider);
 
         }
 
@@ -116,23 +118,28 @@ namespace WebPages
             
         }
 
-        private void InitializeContainer()
+        private void InitializeContainer(ServiceProvider serviceProvider)
         {
 
         
             IocFactory.Container().Register(typeof(IEntityValidator<>), typeof(BaseEntityValidator<>).Assembly, LifeCycleType.Scoped);
             IocFactory.Container().Register<IUnitofWork, UnitOfWork>(LifeCycleType.Scoped);
-            IocFactory.Container().Register<IUserRepository, UserRepository>(LifeCycleType.Scoped);
-            IocFactory.Container().Register<ILogger, Infrastructure.Logging.ConsoleLogger>(LifeCycleType.Singleton);
-            IocFactory.Container().Register<IIdentityService>(() => ServiceProxy<IIdentityService>.Create(IocFactory.Container().GetInstance<IdentityService>(), IocFactory.Container().GetInstance<ILogger>()), LifeCycleType.Scoped);
-
-
-
-
+            IocFactory.Container().Register<IUserRepository, UserRepository>(LifeCycleType.Scoped); 
+            IocFactory.Container().Register(typeof(ILogger<>), typeof(ILogger<>).Assembly,LifeCycleType.Scoped );
+           
+            
             IocFactory.Container().RegisterMediateR(new List<Assembly>()
             {
                 AppDomain.CurrentDomain.GetAssemblies().SingleOrDefault(w => w.GetName().Name == "Core.Domain")
             });
+
+            IocFactory.Container().Register<IIdentityService>(() => 
+                    ServiceProxy<IIdentityService>.Create(
+                        IocFactory.Container().GetInstance<IdentityService>(), 
+                        serviceProvider.GetRequiredService<ILogger<IIdentityService>>()),
+                LifeCycleType.Scoped);
+
+
 
         }
 

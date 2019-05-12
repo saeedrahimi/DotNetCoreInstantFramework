@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
@@ -14,6 +14,7 @@
 
 
   <ItemGroup>
+    <ProjectReference Include="..\Framework.Config\Framework.Config.csproj" />
     <ProjectReference Include="..\Web.Framework\Web.Framework.csproj" />
   </ItemGroup>
 

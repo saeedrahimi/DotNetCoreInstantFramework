@@ -18,7 +18,7 @@ using SimpleInjector.Lifestyles;
 
 namespace Infrastructure.Ioc
 {
-    public class SimpleInjectorContainer: IContainer
+    public class SimpleInjectorContainer : IContainer
     {
 
         private readonly Container _container;
@@ -27,7 +27,7 @@ namespace Infrastructure.Ioc
         public SimpleInjectorContainer()
         {
             _container = new Container();
-            
+
             _container.Options.DefaultScopedLifestyle = new AsyncScopedLifestyle();
             _container.Options.DefaultLifestyle = Lifestyle.Scoped;
             _container.Options.PropertySelectionBehavior = new ImportPropertySelectionBehavior();
@@ -36,10 +36,8 @@ namespace Infrastructure.Ioc
 
         public TService GetInstance<TService>() where TService : class
         {
-            
             return _container.GetInstance<TService>();
         }
-      
 
 
         public void Register<TService, TImplementation>(LifeCycleType lifestyle)
@@ -69,10 +67,26 @@ namespace Infrastructure.Ioc
                     _container.Register(service, assemblies, Lifestyle.Scoped);
                     break;
                 case LifeCycleType.Transient:
-                   _container.Register(service,assemblies,Lifestyle.Transient);
+                    _container.Register(service, assemblies, Lifestyle.Transient);
                     break;
             }
-           
+
+        }
+
+        public void Register(Type service, Type implementationType, LifeCycleType lifestyle)
+        {
+            switch (lifestyle)
+            {
+                case LifeCycleType.Singleton:
+                    _container.Register(service, implementationType, Lifestyle.Singleton);
+                    break;
+                case LifeCycleType.Scoped:
+                    _container.Register(service, implementationType, Lifestyle.Scoped);
+                    break;
+                case LifeCycleType.Transient:
+                    _container.Register(service, implementationType, Lifestyle.Transient);
+                    break;
+            }
         }
 
         public void Register<TService>(Func<object> instanceCreator, LifeCycleType lifestyle)
@@ -87,12 +101,12 @@ namespace Infrastructure.Ioc
                     break;
                 case LifeCycleType.Transient:
                     _container.Register(typeof(TService), instanceCreator, Lifestyle.Singleton);
-                    
+
                     break;
             }
         }
 
-      
+
 
 
         public void AddAspCoreDependencyInjection(IServiceCollection services)
@@ -110,20 +124,21 @@ namespace Infrastructure.Ioc
             services.UseSimpleInjectorAspNetRequestScoping(_container);
 
 
-
-
         }
 
         public void UseAspCoreDependencyInjection(IApplicationBuilder app)
         {
+
             _container.RegisterMvcControllers(app);
             _container.RegisterMvcViewComponents(app);
-
+            
             _container.AutoCrossWireAspNetComponents(app);
+            _container.Verify();
         }
 
         public void RegisterMediateR(IList<Assembly> assemblies)
         {
+
             _container.RegisterSingleton<IMediator, Mediator>();
             _container.Register(typeof(IRequestHandler<,>), assemblies);
 

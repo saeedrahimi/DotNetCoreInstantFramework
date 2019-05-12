@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
 using Core.Domain.Contract.Services.Application.Identity;
 using Core.Domain.Contract.Services.Application.Identity.Model;
@@ -25,9 +26,11 @@ namespace WebPages.Pages.Account
 
 
         [BindProperty]
+        [Required]
         public string UserName { get; set; }
 
         [BindProperty]
+        [Required]
         public string Password { get; set; }
 
         [BindProperty] private bool RememberMe { get; set; }
@@ -39,6 +42,8 @@ namespace WebPages.Pages.Account
 
         public async Task<IActionResult> OnPost(string returnUrl)
         {
+            if (!ModelState.IsValid)
+                return Page();
 
             var siginResult = await _ideIdentityService.SignIn(new SignInModel()
             {
