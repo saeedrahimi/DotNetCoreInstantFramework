@@ -5,15 +5,15 @@ using Infrastructure.Ioc;
 
 namespace Web.Framework
 {
-    public  class IocFactory
+    public static class IocFactory
     {
         private static  IContainer _container;
 
 
-        private static readonly Lazy<IocFactory> _instance =new Lazy<IocFactory>(() => new IocFactory(), LazyThreadSafetyMode.ExecutionAndPublication);
+        //private static readonly Lazy<IocFactory> _instance =new Lazy<IocFactory>(() => new IocFactory(), LazyThreadSafetyMode.ExecutionAndPublication);
 
 
-        public static IocFactory Instance => _instance.Value;
+       // public static IocFactory Instance => _instance.Value;
 
 
         public static IContainer Container()

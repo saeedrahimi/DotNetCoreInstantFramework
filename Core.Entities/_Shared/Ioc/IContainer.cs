@@ -22,9 +22,10 @@ namespace Core.Domain._Shared.Ioc
 
         void Register<TService, TImplementation>(LifeCycleType lifestyle);
         void Register(Type service, Assembly assemblies, LifeCycleType lifestyle);
+        void Register(Type service, Type implementationType, LifeCycleType lifestyle);
         void Register<TService>(Func<object> instanceCreator, LifeCycleType lifestyle);
         
-
+        
 
         void AddAspCoreDependencyInjection(IServiceCollection services);
         void UseAspCoreDependencyInjection(IApplicationBuilder app);

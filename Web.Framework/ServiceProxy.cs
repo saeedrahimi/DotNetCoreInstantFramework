@@ -12,12 +12,12 @@ using Microsoft.EntityFrameworkCore.Internal;
 namespace Web.Framework
 {
 
-    public class ServiceProxy<T> : DispatchProxy
+    public class ServiceProxy<T> : DispatchProxy where T : class
     {
         private T _decorated;
-        private static ILogger _logger;
+        private static ILogger<T> _logger;
 
-        public static T Create(T decorated, ILogger logger)
+        public static T Create(T decorated, ILogger<T> logger)
         {
             _logger = logger;
 
@@ -74,8 +74,8 @@ namespace Web.Framework
             }
             catch (Exception e)
             {
-                if (serviceInterceptor.Log != LogMode.Non)
-                    _logger.Log(LogMode.Exception, e.Message);
+                if(serviceInterceptor.LogMode != LogMode.Non)
+                    _logger.Fatal(e,e.Message);
 
                 return new Result()
                 {

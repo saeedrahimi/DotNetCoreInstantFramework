@@ -9,7 +9,7 @@
             <p>
                 @foreach (var provider in loginProviders)
                 {
-                    <button asp-page-handler="@provider.Name" type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.Name</button>
+                    <button asp-page-handler="@provider.Name" type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="LogMode in using your @provider.DisplayName account">@provider.Name</button>
                 }
             </p>
         </div>
